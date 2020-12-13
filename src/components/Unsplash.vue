@@ -1,5 +1,6 @@
 <template>
     <div class="splash" @click="modal">
+        <a href="#">
         <div class="search" >
             <i class="fa fa-search icon" v-if="!inpSearching" aria-hidden="true"></i>
             <input type="text" @keyup.enter="searchQuery" v-if="!inpSearching" placeholder="Search for a photo" class="input"  v-model="searchText">
@@ -76,7 +77,7 @@
                             <div class="text two">{{photo.user.location }}</div> 
                             <div class="photobox-target" :id="photo.id">
                                 <img :src="photo.urls.regular"/>
-                                <a class="photobox-close" href="#">x</a>
+                                <a class="photobox-close" href="#"></a>
                                 <div class="modal-text">
                                     <div>{{photo.user.name}}</div>
                                     <div>{{photo.user.location }}</div>
@@ -87,7 +88,8 @@
                  </div>
             </div>
         </div>
-     </div>
+      </a>
+    </div>
 </template>
 
 
@@ -158,6 +160,11 @@ export default {
         font-family: 'Nunito' !important;
     }
 
+    a {
+        color: black;
+        text-decoration: none
+    }
+
     .input:focus {
         outline: none;
     }
@@ -184,7 +191,6 @@ export default {
         display: grid;
         grid-template-columns: auto;
         margin-bottom: 20px;
-        /* column-gap:30px; */
     }
 
     div img {
